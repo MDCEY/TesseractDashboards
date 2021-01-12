@@ -1,0 +1,24 @@
+﻿<mah:MetroWindow 
+	    x:Class="LiveCalls.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LiveCalls"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        mc:Ignorable="d"
+        GlowBrush="{DynamicResource MahApps.Brushes.Accent}"
+        WindowStartupLocation="CenterScreen"
+        Title="LiveCalls" Height="450" Width="850">
+    <Window.Resources>
+		<local:VMLiveCalls x:Key="VMLiveCalls"></local:VMLiveCalls>
+    </Window.Resources>
+	<mah:MetroWindow.RightWindowCommands>
+		<mah:WindowCommands>
+			<TextBlock Text="Kieran Wynne" VerticalAlignment="Center" Margin="0 0 4 0" />
+		</mah:WindowCommands>
+	</mah:MetroWindow.RightWindowCommands>
+	<DockPanel DataContext="{Binding Source={StaticResource VMLiveCalls}}">
+		<DataGrid DockPanel.Dock="Top" MinHeight="200" ItemsSource="{Binding OpenCalls}" IsReadOnly="True" HeadersVisibility="All"/>
+	</DockPanel>
+</mah:MetroWindow>
