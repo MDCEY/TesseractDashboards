@@ -1,9 +1,10 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net.Security;
 using System.Text;
 using System.Windows.Threading;
 using Dapper;
@@ -73,6 +74,24 @@ namespace LiveCalls
                         Turnaround = result.Turnaround
                     });
                 }
+            }
+            // remove from datagrid
+
+            // loop through datagrid. if description not in db results remove description
+            List<OpenCall> toRemove = new List<OpenCall>();
+            foreach (var openCall in OpenCalls)
+            {
+                var desc = openCall.MaterialDescription; //if this not in db then remove it
+                var inDb = resultsFromDb.FirstOrDefault(x => x.MaterialDescription == desc);
+                if (inDb == null)
+                {
+                    toRemove.Add(openCall);
+                }
+            }
+
+            foreach (var call in toRemove)
+            {
+                OpenCalls.Remove(call);
             }
 
         }
