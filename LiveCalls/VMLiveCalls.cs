@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
@@ -48,9 +48,9 @@ namespace LiveCalls
 
         private void Update()
         {
-            var results = FetchResultsFromDB();
-            //check prod exists
-            foreach (var result in results)
+            var resultsFromDb = FetchResultsFromDB();
+            // add to datagrid
+            foreach (var result in resultsFromDb)
             {
                 var resultDescription = result.MaterialDescription;
                 var existingCall = OpenCalls.FirstOrDefault(x => x.MaterialDescription == resultDescription);
