@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Net.Security;
 using System.Text;
@@ -114,6 +115,7 @@ namespace LiveCalls
             var _ = Convert.FromBase64String(Resources.ConnectionString);
             var connection = new SqlConnection(Encoding.UTF8.GetString(_));
             var update = connection.Query<OpenCall>(query).ToList();
+            connection.Close();
             return update;
         }
 
