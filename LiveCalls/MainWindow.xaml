@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         GlowBrush="{DynamicResource MahApps.Brushes.Accent}"
         WindowStartupLocation="CenterScreen"
-        Title="LiveCalls" Height="450" Width="850">
+        Title="LiveCalls" Height="450" Width="660">
     <Window.Resources>
 		<local:VMLiveCalls x:Key="VMLiveCalls"></local:VMLiveCalls>
     </Window.Resources>
@@ -19,6 +19,15 @@
 		</mah:WindowCommands>
 	</mah:MetroWindow.RightWindowCommands>
 	<DockPanel DataContext="{Binding Source={StaticResource VMLiveCalls}}">
-		<DataGrid DockPanel.Dock="Top" MinHeight="200" ItemsSource="{Binding OpenCalls}" IsReadOnly="True" HeadersVisibility="All"/>
+		<DataGrid DockPanel.Dock="Top" MinHeight="200" ItemsSource="{Binding OpenCalls}" IsReadOnly="True" HeadersVisibility="All" AutoGenerateColumns="False">
+			<DataGrid.Columns>
+				<DataGridTextColumn Header="Description" Binding="{Binding MaterialDescription}"/>
+				<DataGridTextColumn Header="Quantity" Binding="{Binding QuantityOpen}"/>
+				<DataGridTextColumn Header="Oldest" Binding="{Binding Oldest, StringFormat=d, ConverterCulture=en-GB}"/>
+				<DataGridTextColumn Header="Newest" Binding="{Binding Newest, StringFormat=d, ConverterCulture=en-GB}"/>
+				<DataGridTextColumn Header="Turn Around" Binding="{Binding Turnaround}"/>
+				<DataGridTextColumn Header="Repair Price" Binding="{Binding RepairPrice, StringFormat=C,ConverterCulture=en-GB}"/>
+			</DataGrid.Columns>
+		</DataGrid>
 	</DockPanel>
 </mah:MetroWindow>
