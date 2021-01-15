@@ -15,6 +15,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecentEngineerPartUsage", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveCalls", "LiveCalls\LiveCalls.csproj", "{D07EF94E-CEBD-48B0-AF6D-7357BF8A80E5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6F7A2002-70A0-40D2-BB7F-DF7A0B516748}"
+	ProjectSection(SolutionItems) = preProject
+		mvvmModelProperty.snippet = mvvmModelProperty.snippet
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
